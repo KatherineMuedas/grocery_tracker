@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :products
   resources :purchases
 
-  root to: 'products#index'
+  root to: 'list#show'
   
 end
