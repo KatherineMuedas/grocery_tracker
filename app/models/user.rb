@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :products,throught: :list
   has_many :purchases, through: :products
 
+  after_create :give_user_a_list
+
   def give_user_a_list
     List.create(user_id: self.id) 
   end
