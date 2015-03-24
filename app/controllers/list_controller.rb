@@ -1,6 +1,6 @@
 class ListController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_article, only:[:edit, :update]  
+  before_action :find_list, only:[:edit, :update]  
 
 
   def show
