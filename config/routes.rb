@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'list/show'
-
+ 
   devise_for :users
   resources :users
-  resources :list, only: [:show]
+  resources :list, only: [:show, :edit, :update]
 
   resources :products
   resources :purchases
