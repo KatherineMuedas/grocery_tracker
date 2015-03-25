@@ -1,0 +1,14 @@
+= simple_form_for @list do |f|
+  %h3 Products
+  #products
+    = f.simple_fields_for :products do |product|
+      = render 'product_fields', f: product  
+    .links
+      = link_to_add_association 'add products', f, :products
+    = f.submit
+
+
+
+
+
+    

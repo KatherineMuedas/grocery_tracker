@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   after_create :give_user_a_list
 
   def give_user_a_list
-    List.create(user_id: self.id) 
+    List.create(user_id: self.id)
   end
 
   

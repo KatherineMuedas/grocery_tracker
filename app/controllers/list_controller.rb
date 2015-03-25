@@ -13,7 +13,7 @@ class ListController < ApplicationController
   end
 
   def update
-    if @find.update(list_params)
+    if @list.update(list_params)
       redirect_to @list
     else
       render 'edit'
@@ -27,8 +27,13 @@ class ListController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:user_id)
+    products_attributes = [:id,:name, :product_type, :product_cycle,:user_id ]
+    params.require(:list).permit(:user_id, products_attributes: products_attributes)
   end
+
+  
+
+ 
 
 
 end
