@@ -5,6 +5,7 @@ class ListController < ApplicationController
 
   def show
     @list = current_user.list
+    @products = @list.products.all
   end
 
   def edit

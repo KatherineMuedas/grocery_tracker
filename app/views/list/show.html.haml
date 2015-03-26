@@ -1,2 +1,23 @@
 %h1 Grocery list 
 = link_to "Edit list", edit_list_path(@list)
+%h5 Grocery list
+%table
+  %thead
+    %tr
+      %th Name
+      %th Product Type
+      %th 
+  %tbody
+    - @products.each_with_index do |product, index|
+      %tr
+        %td= product.name
+        %td= product.product_type
+        %td= link_to "Got it?", edit_product_path(product)
+       
+
+
+
+
+
+
+
