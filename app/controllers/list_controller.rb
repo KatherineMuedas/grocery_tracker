@@ -13,8 +13,9 @@ class ListController < ApplicationController
 
   end
 
+
   def update
-    if @list.update(list_params)
+    if @list.update_attributes(list_params)
       redirect_to @list
     else
       render 'edit'
@@ -30,12 +31,8 @@ class ListController < ApplicationController
   def list_params
     # purchases_attributes = [:id, :store, :quantity, :]
     lattest_purchase_attributes = [:id, :store, :quantity, :unit_measurement ]
-    products_attributes = [:id,:name, :product_type, :product_cycle,:user_id, lattest_purchase_attributes: lattest_purchase_attributes ]
+    products_attributes = [:id, :name, :product_type, :product_cycle, :user_id, :_destroy, lattest_purchase_attributes: lattest_purchase_attributes ]
     params.require(:list).permit(:user_id, products_attributes: products_attributes )
   end
-
-  
- 
-
 
 end
