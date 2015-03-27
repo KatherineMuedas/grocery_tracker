@@ -28,12 +28,13 @@ class ListController < ApplicationController
   end
 
   def list_params
-    products_attributes = [:id,:name, :product_type, :product_cycle,:user_id ]
-    params.require(:list).permit(:user_id, products_attributes: products_attributes)
+    # purchases_attributes = [:id, :store, :quantity, :]
+    lattest_purchase_attributes = [:id, :store, :quantity, :unit_measurement ]
+    products_attributes = [:id,:name, :product_type, :product_cycle,:user_id, lattest_purchase_attributes: lattest_purchase_attributes ]
+    params.require(:list).permit(:user_id, products_attributes: products_attributes )
   end
 
   
-
  
 
 
