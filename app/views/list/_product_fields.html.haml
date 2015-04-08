@@ -1,7 +1,7 @@
 .nested-fields
   = f.input :name
   = f.input :product_type
-  = f.input :product_cycle
+  = f.hidden_field :product_cycle, value: "to_buy" 
   = f.simple_fields_for :lattest_purchase, f.object.lattest_purchase.present? ? f.object.lattest_purchase : f.object.build_lattest_purchase do |purchase|
     .purchase-fields
       =purchase.input :quantity

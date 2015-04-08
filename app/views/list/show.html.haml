@@ -10,7 +10,7 @@
           %th Product Type
           %th 
       %tbody
-        - @products.each_with_index do |product, index|
+        - @products_to_buy.each_with_index do |product, index|
           %tr
             %td= product.name
             %td= product.product_type
@@ -22,20 +22,21 @@
       %thead
         %tr
           %th Name
-          %th Product Type 
+          %th Product Type
+          %th Quantity
+          %th Unit measurement 
+          %th Expiration date 
+
       %tbody
-        - @products.each_with_index do |product, index|
+        - @products_stock.each_with_index do |product, index|
           %tr
             %td= product.name
             %td= product.product_type
+            %td= product.lattest_purchase.quantity
+            %td= product.lattest_purchase.unit_measurement
+            %td= product.lattest_purchase.expiration_date
+
+= smart_listing_render(:products_to_buy)
+
             
     
-
-
-  
-
-
-
-
-
-

@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  enum product_cycle: [ :to_buy, :stock, :no_more ]
   belongs_to :list
   has_many :purchases, dependent: :destroy
   has_one :lattest_purchase, -> { order created_at: 'DESC' }, class_name: "Purchase", dependent: :destroy

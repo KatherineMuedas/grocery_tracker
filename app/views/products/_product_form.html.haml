@@ -16,10 +16,8 @@
       .form-group
         = f.input :product_type, label: 'Product type:'
         %br/
-      .form-group
-        = f.input :product_cycle, label: 'Product cycle:'  
-        %br/
-      = f.fields_for :purchase, @purchase do |purchase|
+        = f.hidden_field :product_cycle, value: "stock" 
+      = f.fields_for :lattest_purchase, @product.lattest_purchase do |purchase|
         .nested-fields
           = purchase.input :quantity
           = purchase.input :unit_measurement
@@ -28,6 +26,7 @@
           = purchase.input :purchase_date
           = purchase.input :price
           = purchase.input :unit_price
+
   .row
     .small-12.small-centered
       = f.submit 'Submit', :class => 'button right'

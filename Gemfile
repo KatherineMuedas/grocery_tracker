@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'friendly_id'
 gem 'cocoon'
 gem 'figaro'
+gem "smart_listing"
 
 group :development do
   gem 'better_errors'

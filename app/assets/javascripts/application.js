@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require foundation
 //= require cocoon
+//= require smart_listing
 //= require_tree .
 
 $(function() {

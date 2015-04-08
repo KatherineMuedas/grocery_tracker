@@ -1,11 +1,15 @@
 class ListController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
+  
   before_action :authenticate_user!
   before_action :find_list, only:[:edit, :update]  
 
-
+  
   def show
     @list = current_user.list
-    @products = @list.products.all
+    @products_to_buy = smart_listing_create(:products_to_buy, @list.products.where(product_cycle: 0), partial: "list/products_to_buy_list", default_sort: {name: "asc"})
+    @products_stock = @list.products.where(product_cycle: 1)
   end
 
   def edit

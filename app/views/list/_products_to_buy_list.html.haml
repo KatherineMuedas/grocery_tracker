@@ -1,0 +1,21 @@
+- unless smart_listing.empty?
+  %table
+    %thead
+      %tr 
+        %th= smart_listing.sortable "Name", :name
+        %th= smart_listing.sortable "Product Type", :product_type
+        %th 
+    %tbody
+      - smart_listing.collection.each do |product|
+        %tr
+          %td= product.name
+          %td= product.product_type
+          %td= link_to "Got it?", edit_product_path(product)
+
+  = smart_listing.paginate 
+  = smart_listing.pagination_per_page_links
+- else
+  %p.warning No records!
+
+
+
